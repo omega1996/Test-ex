@@ -13,9 +13,9 @@ class Solver_8_queens:
 		self.population=[]
 		self.fit_func_popul=[]
 		fitness = []
+		population = self.generate_population()
 	
 	def solve(self, min_fitness=0.9, max_epochs=100):
-		population = self.generate_population()
 		fit_func_popul = self.fit_func(population)
 		epoch_num = 0
 		best_fit = max(self.fit_func_popul)
@@ -29,16 +29,16 @@ class Solver_8_queens:
 			new_population = self.crossingover(parents)	
 			
 			#мутируем
-			mutated = self.mutation(new_population)
+			population = self.mutation(new_population)
 			
 			#проверка функции
-			fit_popul = fit_func(mutated)
+			fit_popul = fit_func(population)
 			best_fit = max(fit_popul)
 			max_index = fit_popul.index(best_fit)
 			
 			epoch_num = epoch_num + 1
 			
-		return best_fit, epoch_num, self.visualization(self.mutated[max_index])
+		return best_fit, epoch_num, self.visualization(self.population[max_index])
 	
 	
 	def visualization(self, osob):
