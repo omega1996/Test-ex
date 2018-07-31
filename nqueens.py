@@ -11,7 +11,7 @@ class Solver_8_queens:
 		self.cross_prob = cross_prob
 		self.mut_prob = mut_prob
 		self.population=[]
-		self.fit_func_popul=[0.1]
+		self.fit_func_popul=[]
 		fitness = []
 	
 	def solve(self, min_fitness=0.9, max_epochs=100):
